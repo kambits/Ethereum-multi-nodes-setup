@@ -24,7 +24,7 @@ while (( $n<=$node_number ))
 do
     qd=qdata_$n
 
-    nohup geth --nousb --identity "Blocktest" --rpc --rpcapi eth,web3,personal,admin,miner,txpool,net --rpcport "$[$n+22000]" --rpccorsdomain "*" --rpcaddr 0.0.0.0 --datadir $qd/dd --port "$[$n+30300]" --nodiscover --miner.gaslimit 18446744073709551615 --miner.gastarget 18446744073709551615 --allow-insecure-unlock --mine --miner.threads 5 --verbosity 4 >$qd/logs/geth.log 2>&1 &
+    nohup geth --nousb --identity "Blocktest" --unlock '0' --password './password.txt' --rpc --rpcapi eth,web3,personal,admin,miner,txpool,net --rpcport "$[$n+22000]" --rpccorsdomain "*" --rpcaddr 0.0.0.0 --datadir $qd/dd --port "$[$n+30300]" --nodiscover --miner.gaslimit 18446744073709551615 --miner.gastarget 18446744073709551615 --allow-insecure-unlock --mine --miner.threads 5 --verbosity 4 >$qd/logs/geth.log 2>&1 &
     
     sleep 1
     let n++

@@ -117,7 +117,7 @@ do
     cp genesis.json $qd/genesis.json
     let n++
 done
-
+touch password.txt
 rm -rf genesis.json 
 
 
